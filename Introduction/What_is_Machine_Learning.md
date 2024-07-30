@@ -15,4 +15,4 @@ Artificial Intelligence, Machine Learning, Deep Learning ; These are some of the
 
 The Diagram below would help you understand better.
 
-![AI vs ML vs DL](AI_vs_ML_v_sDL.jpg)
+![AI vs ML vs DL](AI_vs_ML_vs_DL.jpg)
