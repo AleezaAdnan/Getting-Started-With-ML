@@ -30,7 +30,7 @@ ML is a subset of Artificial Intelligence that uses data to train algorithms for
 **Deep Learning**  
 DL is a specialization of Machine Learning. DL algorithms have the added ability to learn important features from data by themselves.
 
-###Example: Movie Recommendation System
+### Example: Movie Recommendation System
 To make it clearer, let's use an example of recommending movies.
 
 - AI could use any method to recommend movies, from simple rule-based systems to advanced learning models. For example, an AI system might recommend movies based on genres you have previously watched.
