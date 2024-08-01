@@ -1,7 +1,7 @@
 # ML vs Traditional Programming
 
 <p align="center">
-  <img src="../Introduction/images/ml_vs_Traditional_paradigm.png" alt="ML vs Traditional Programming">
+  <img src="../Introduction/images/ml_vs_traditional_paradigm.png" alt="ML vs Traditional Programming">
 </p>
 
 - Traditional programs take data as input and process it according to predefined logic/rules mainly conditional statements and then provide the output 
@@ -16,6 +16,9 @@
 
 - Machine Learning solutions are ideal for problems with complex patterns or interactions that are difficult to specify manually. For example, recognizing faces in photos or understanding natural language, where the patterns are too intricate for explicit rule-based programming
 
+**The table below will help you understand the core differences**
+
+<p align='center'>
 <table>
   <thead>
     <tr>
@@ -78,3 +81,6 @@
     </tr>
   </tbody>
 </table>
+</p>
+
+Choosing between traditional programming and machine learning depends on the complexity of the problem, the nature of the data, and the need for adaptability. Understanding the strengths and limitations of each approach will help in making an informed decision.
