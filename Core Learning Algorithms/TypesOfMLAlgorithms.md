@@ -9,7 +9,7 @@ There are three main types of machine learning algorithms: Supervised Learning, 
 ### How It Works
 Imagine you're learning to recognize different types of fruits. You have a dataset with images of fruits (input) and labels indicating the type of fruit (output). The supervised learning algorithm analyzes this dataset and learns the relationship between the images and the labels. Once trained, the model can predict the type of fruit in new images it hasn't seen before.
 
-Supervised learning algorithms can be broadly categorized into two types: **regression** and **classification**. Regression algorithms predict a continuous value, such as the price of a house. Classification algorithms, on the other hand, predict discrete labels, such as whether an email is spam or not. You'll learn more about these distinctions in the [Supervised Learning Algorithms](Supervised Learning/supervised_learning.md) section.
+Supervised learning algorithms can be broadly categorized into two types: **regression** and **classification**. Regression algorithms predict a continuous value, such as the price of a house. Classification algorithms, on the other hand, predict discrete labels, such as whether an email is spam or not. You'll learn more about these distinctions in the [Supervised Learning Algorithms](Supervised%20Learning/supervised_learning.md) section.
 
 ### Common Algorithms
 - **Linear Regression**: Used for predicting a continuous value.
@@ -28,7 +28,7 @@ Consider the fruit example again, but this time, you don't have labels for the i
 - **Hierarchical Clustering**: Builds a tree of clusters.
 - **Principal Component Analysis (PCA)**: Reduces the dimensionality of data.
 
-Learn more about these algorithms in the [Unsupervised Learning](Unsupervised Learning/unsupervised_learning.md) section.
+Learn more about these algorithms in the [Unsupervised Learning](Unsupervised%20Learning/unsupervised_learning.md) section.
 
 ## Reinforcement Learning
 
@@ -41,6 +41,6 @@ Imagine teaching a robot to navigate a maze. The robot receives positive feedbac
 - **Q-Learning**: A simple reinforcement learning algorithm.
 - **Deep Q-Networks (DQN)**: Uses neural networks to approximate the Q-values.
 
-Discover more about these algorithms in the [Reinforcement Learning](Reinforcement Learning/reinforcement_learning.md) section.
+Discover more about these algorithms in the [Reinforcement Learning](Reinforcement%20Learning/reinforcement_learning.md) section.
 
  Each type has its strengths and is suited for different tasks. Dive into the specific sections to get a detailed understanding of how each algorithm works and how to implement them.
