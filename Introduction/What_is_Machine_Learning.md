@@ -16,7 +16,7 @@ Artificial Intelligence, Machine Learning, Deep Learning—these are some of the
 The diagram below will help you understand better.
 
 <p align="center">
-  <img src="AI_vs_ML_vs_DL.jpg" alt="AI vs ML vs DL">
+  <img src="../images/AI_vs_ML_vs_DL.jpg" alt="AI vs ML vs DL">
 </p>
 
 #### What's the Differentiating Factor?
