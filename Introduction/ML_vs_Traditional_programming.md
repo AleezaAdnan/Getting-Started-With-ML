@@ -1,7 +1,7 @@
 # ML vs Traditional Programming
 
 <p align="center">
-  <img src="../images/ml_vs_Traditional_paradigm.png" alt="ML vs Traditional Programming">
+  <img src="../Introduction/images/ml_vs_Traditional_paradigm.png" alt="ML vs Traditional Programming">
 </p>
 
 - Traditional programs take data as input and process it according to predefined logic/rules mainly conditional statements and then provide the output 
