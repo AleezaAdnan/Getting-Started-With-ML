@@ -21,3 +21,14 @@ Linear Regression is used to predict a number based on a trend in the data. It f
 
 Go through [Linear Regression Notebook](linear_regression.ipynb) to understand the implementation of linear regression using scikitlearn on the housing price prediction dataset.
  
+*Model Performance*
+```
+Mean Squared Error (MSE): 1754318687330.669
+Root Mean Squared Error (RMSE): 1324506.960
+R^2 Score: 0.653
+
+```
+- MSE and RMSE: High values suggest that there is considerable error in the predictions. You might want to investigate if different preprocessing steps could improve the model’s performance.
+- R² Score: A score of 0.653 is reasonably good but indicates that there is room for improvement. You might consider trying more complex models, adding more features, or exploring interactions between features.
+Refer to [Improving your ML Model](../../Improving%20Model%20Performance/) to learn how to improve the model's performace.
+
