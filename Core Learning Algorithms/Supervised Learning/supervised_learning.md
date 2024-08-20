@@ -59,6 +59,7 @@ Support Vector Regression focuses on finding a function that approximates the ta
 **Epsilon-Insensitive Loss Function:** SVR uses an epsilon-insensitive loss function, which means that errors within a certain margin (epsilon) are ignored. The algorithm tries to fit the best possible line or curve within this margin, aiming to achieve a balance between model complexity and fit accuracy.
 
 
+
 <p allign= 'center'>
 <table>
   <thead>
@@ -101,7 +102,7 @@ Support Vector Regression focuses on finding a function that approximates the ta
     </tr>
     <tr>
       <td><strong>Common Kernels</strong></td>
-      <td>Linear, Polynomial, Radial Basis Function (RBF), Sigmoid.</td>
+      <td colspan=2>Linear, Polynomial, Radial Basis Function (RBF), Sigmoid.</td>
     </tr>
     <tr>
       <td><strong>Output</strong></td>
