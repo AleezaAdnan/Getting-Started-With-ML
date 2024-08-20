@@ -58,47 +58,40 @@ Support Vector Regression focuses on finding a function that approximates the ta
 
 **Epsilon-Insensitive Loss Function:** SVR uses an epsilon-insensitive loss function, which means that errors within a certain margin (epsilon) are ignored. The algorithm tries to fit the best possible line or curve within this margin, aiming to achieve a balance between model complexity and fit accuracy.
 
+##### SVM and SVR Kernels Overview
 
+1. **Linear Kernel**
+- **SVM**: 
+  - For linearly separable data.
+  - **Example**: Classifying emails as spam or not spam.
+- **SVR**:
+  - Fits a straight line assuming a linear relationship.
+  - **Example**: Predicting house prices based on size.
 
-<p allign= 'center'>
-<table font-size=11>
-  <thead>
-    <tr>
-      <th>Kernel Type</th>
-      <th>Application in SVM (Classification)</th>
-      <th>Application in SVR (Regression)</th>
-      <th>Example Use Case</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Linear Kernel</strong></td>
-      <td>Used when the data is linearly separable. It finds a straight line (hyperplane) that separates the classes.</td>
-      <td>Used for datasets where the relationship between features and the target is approximately linear. It fits a straight line to the data.</td>
-      <td><strong>SVM:</strong> Spam email classification, where features like the presence of certain words may separate spam from non-spam.<br><strong>SVR:</strong> Predicting house prices based on features like square footage, assuming a linear relationship.</td>
-    </tr>
-    <tr>
-      <td><strong>Polynomial Kernel</strong></td>
-      <td>Used when the relationship between the classes is not linear. It finds a curved decision boundary by transforming the data into a higher dimension.</td>
-      <td>Used when the relationship between the features and the target is non-linear. It fits a polynomial curve to the data.</td>
-      <td><strong>SVM:</strong> Classifying images of handwritten digits, where the decision boundary between different digits is non-linear.<br><strong>SVR:</strong> Predicting the number of visitors to a theme park based on a non-linear relationship with weather conditions.</td>
-    </tr>
-    <tr>
-      <td><strong>Radial Basis Function (RBF) Kernel</strong></td>
-      <td>Ideal for complex, non-linear datasets. It creates a decision boundary that can adapt to the intricacies of the data by mapping it into an infinite-dimensional space.</td>
-      <td>Used for non-linear regression tasks where the relationship between features and the target is complex and cannot be captured by a linear or polynomial function.</td>
-      <td><strong>SVM:</strong> Image classification where the decision boundary between objects is highly complex.<br><strong>SVR:</strong> Predicting stock market trends where the relationship between historical data and future prices is complex and non-linear.</td>
-    </tr>
-    <tr>
-      <td><strong>Sigmoid Kernel</strong></td>
-      <td>Less commonly used but can mimic the behavior of neural networks. It maps data into a high-dimensional space similar to the hidden layers of a neural network.</td>
-      <td>Similar to its use in SVM, the Sigmoid kernel can model non-linear relationships in SVR by mapping data into a higher-dimensional space.</td>
-      <td><strong>SVM:</strong> Classifying user behavior on a website into categories like "interested" or "not interested," based on complex patterns.<br><strong>SVR:</strong> Modeling the relationship between advertising spend and sales, where the effect of advertising on sales is non-linear.</td>
-    </tr>
-  </tbody>
-</table>
+2. **Polynomial Kernel**
+- **SVM**:
+  - For more complex, non-linear boundaries.
+  - **Example**: Classifying handwritten digits.
+- **SVR**:
+  - Fits a curved line for non-linear relationships.
+  - **Example**: Predicting theme park visitors based on weather.
 
-</p>
+3. **Radial Basis Function (RBF) or Gaussian Kernel**
+- **SVM**:
+  - Ideal for complex, non-linear data.
+  - **Example**: Classifying images with complex boundaries.
+- **SVR**:
+  - Models complex, non-linear relationships.
+  - **Example**: Predicting stock prices from historical data.
+
+4. **Sigmoid Kernel**
+- **SVM**:
+  - Mimics neural networks for complex scenarios.
+  - **Example**: Classifying user behavior on a website.
+- **SVR**:
+  - Similar to classification, for neural network-like relationships.
+  - **Example**: Modeling the relationship between advertising spend and sales.
+
 
 
 ### 4. Random Forest 
