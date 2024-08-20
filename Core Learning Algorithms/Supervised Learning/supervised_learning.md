@@ -61,61 +61,43 @@ Support Vector Regression focuses on finding a function that approximates the ta
 
 
 <p allign= 'center'>
-<table>
+<table font-size=11>
   <thead>
     <tr>
-      <th>Aspect</th>
-      <th>SVM (Support Vector Machine)</th>
-      <th>SVR (Support Vector Regression)</th>
+      <th>Kernel Type</th>
+      <th>Application in SVM (Classification)</th>
+      <th>Application in SVR (Regression)</th>
+      <th>Example Use Case</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>Purpose</strong></td>
-      <td>Classification: SVM is primarily used for binary or multi-class classification tasks.</td>
-      <td>Regression: SVR is used to predict a continuous target variable.</td>
+      <td><strong>Linear Kernel</strong></td>
+      <td>Used when the data is linearly separable. It finds a straight line (hyperplane) that separates the classes.</td>
+      <td>Used for datasets where the relationship between features and the target is approximately linear. It fits a straight line to the data.</td>
+      <td><strong>SVM:</strong> Spam email classification, where features like the presence of certain words may separate spam from non-spam.<br><strong>SVR:</strong> Predicting house prices based on features like square footage, assuming a linear relationship.</td>
     </tr>
     <tr>
-      <td><strong>Objective</strong></td>
-      <td>Maximize the margin between classes and find the optimal hyperplane that best separates the classes.</td>
-      <td>Minimize the error within a specified margin (epsilon) and find a hyperplane that best fits the data.</td>
+      <td><strong>Polynomial Kernel</strong></td>
+      <td>Used when the relationship between the classes is not linear. It finds a curved decision boundary by transforming the data into a higher dimension.</td>
+      <td>Used when the relationship between the features and the target is non-linear. It fits a polynomial curve to the data.</td>
+      <td><strong>SVM:</strong> Classifying images of handwritten digits, where the decision boundary between different digits is non-linear.<br><strong>SVR:</strong> Predicting the number of visitors to a theme park based on a non-linear relationship with weather conditions.</td>
     </tr>
     <tr>
-      <td><strong>Decision Boundary</strong></td>
-      <td>A hyperplane (in higher dimensions) that separates different classes.</td>
-      <td>A hyperplane that predicts the target value with minimal deviation within a specified epsilon margin.</td>
+      <td><strong>Radial Basis Function (RBF) Kernel</strong></td>
+      <td>Ideal for complex, non-linear datasets. It creates a decision boundary that can adapt to the intricacies of the data by mapping it into an infinite-dimensional space.</td>
+      <td>Used for non-linear regression tasks where the relationship between features and the target is complex and cannot be captured by a linear or polynomial function.</td>
+      <td><strong>SVM:</strong> Image classification where the decision boundary between objects is highly complex.<br><strong>SVR:</strong> Predicting stock market trends where the relationship between historical data and future prices is complex and non-linear.</td>
     </tr>
     <tr>
-      <td><strong>Support Vectors</strong></td>
-      <td>Support vectors are the data points that are closest to the decision boundary, which determine the position of the hyperplane.</td>
-      <td>Support vectors are the data points that fall within the epsilon margin and influence the position of the regression line.</td>
-    </tr>
-    <tr>
-      <td><strong>Kernel Trick</strong></td>
-      <td>Used to handle non-linear data by transforming it into a higher-dimensional space where a linear separation is possible.</td>
-      <td>Used to handle non-linear relationships by transforming the input space into a higher-dimensional space where a linear regression model fits better.</td>
-    </tr>
-    <tr>
-      <td><strong>Loss Function</strong></td>
-      <td>Hinge loss: Encourages correct classification by a margin and penalizes misclassifications.</td>
-      <td>Epsilon-insensitive loss: Errors within the epsilon margin are ignored, and only deviations beyond the margin are penalized.</td>
-    </tr>
-    <tr>
-      <td><strong>Common Kernels</strong></td>
-      <td colspan=2>Linear, Polynomial, Radial Basis Function (RBF), Sigmoid.</td>
-    </tr>
-    <tr>
-      <td><strong>Output</strong></td>
-      <td>Class labels (e.g., 0 or 1 in binary classification).</td>
-      <td>Continuous values (e.g., predicted numerical value).</td>
-    </tr>
-    <tr>
-      <td><strong>Applications</strong></td>
-      <td>Image classification, text categorization, and bioinformatics.</td>
-      <td>Forecasting, time series prediction, and financial modeling.</td>
+      <td><strong>Sigmoid Kernel</strong></td>
+      <td>Less commonly used but can mimic the behavior of neural networks. It maps data into a high-dimensional space similar to the hidden layers of a neural network.</td>
+      <td>Similar to its use in SVM, the Sigmoid kernel can model non-linear relationships in SVR by mapping data into a higher-dimensional space.</td>
+      <td><strong>SVM:</strong> Classifying user behavior on a website into categories like "interested" or "not interested," based on complex patterns.<br><strong>SVR:</strong> Modeling the relationship between advertising spend and sales, where the effect of advertising on sales is non-linear.</td>
     </tr>
   </tbody>
 </table>
+
 </p>
 
 
