@@ -17,7 +17,7 @@ Classification is used when the output variable is a category. The goal of class
 ## Common Algorithms in Supervised Learning
 
 ### 1. Linear Regression
-Linear Regression is used to predict a number based on a trend in the data. It finds the best-fit line through your data points. It draws a line that best represents the relationship between input features and the output value. You use this line to make predictions.
+Linear Regression is used to predict a number based on a trend in the data. It finds the best-fit line through your data points (this best fit line is calculated using different mathematical formulas and each of them has specific use cases). It draws a line that best represents the relationship between input features and the output value. You use this line to make predictions.
 
 Go through [Linear Regression Notebook](linear_regression.ipynb) to understand the implementation of linear regression using scikitlearn on the housing price prediction dataset.
  
@@ -31,4 +31,120 @@ R^2 Score: 0.653
 - MSE and RMSE: High values suggest that there is considerable error in the predictions. You might want to investigate if different preprocessing steps could improve the model’s performance.
 - R² Score: A score of 0.653 is reasonably good but indicates that there is room for improvement. You might consider trying more complex models, adding more features, or exploring interactions between features.
 Refer to [Improving your ML Model](../../Improving%20Model%20Performance/) to learn how to improve the model's performace.
+
+### 2. Decision Trees
+Decision Trees split data into branches to make predictions. Each branch represents a decision based on a feature.
+It creates a tree-like model where each branch is a decision point, leading to a prediction at the end.
+
+It works for both Regression and Classification problems
+Regression: Predicts numbers by averaging outcomes in the branches.
+Classification: Sorts data into categories based on majority votes.
+
+[Decision Tree NoteBook](decision_tree.ipynb) covers the implementation of Decision tree for classification problem on the titanic dataset.
+
+- The model achieves strong overall accuracy (84.9%) and high precision (92.2%), indicating it correctly identifies survivors most of the time when it predicts survival. However, the recall (72.8%) suggests it misses a notable portion of actual survivors, which could be critical in applications where missing true positives is costly. 
+- To improve in more critical contexts, focusing on increasing recall, possibly by adjusting the decision threshold or using techniques like boosting, could help ensure more survivors are correctly identified.
+
+### 3. Support Vector Machine
+SVM is primarily a classification algorithm but can also be adapted for regression tasks (called Support Vector Regression, SVR).
+#### SVM 
+(for classification tasks) finds the optimal hyperplane that best separates the classes in the data by maximizing the margin between them (i.e they are as far away from the hyperplane as possible). In higher dimensions, this decision boundary can be more complex, especially with the use of kernels
+The visualization in this [video](https://youtu.be/_YPScrckx28?si=NnkVJIk4UAxsV3Gi) will make it a bit easier to understand
+
+**Kernel Trick:** SVM handles non-linear relationships by using kernels. A kernel function transforms the data into a higher-dimensional space where a linear separation is possible. 
+
+#### SVR 
+Support Vector Regression focuses on finding a function that approximates the target values within a specified margin of error. The goal is to minimize the prediction error while allowing for a margin where errors are tolerated.
+
+**Epsilon-Insensitive Loss Function:** SVR uses an epsilon-insensitive loss function, which means that errors within a certain margin (epsilon) are ignored. The algorithm tries to fit the best possible line or curve within this margin, aiming to achieve a balance between model complexity and fit accuracy.
+
+
+<p allign= 'center'>
+<table>
+  <thead>
+    <tr>
+      <th>Aspect</th>
+      <th>SVM (Support Vector Machine)</th>
+      <th>SVR (Support Vector Regression)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Purpose</strong></td>
+      <td>Classification: SVM is primarily used for binary or multi-class classification tasks.</td>
+      <td>Regression: SVR is used to predict a continuous target variable.</td>
+    </tr>
+    <tr>
+      <td><strong>Objective</strong></td>
+      <td>Maximize the margin between classes and find the optimal hyperplane that best separates the classes.</td>
+      <td>Minimize the error within a specified margin (epsilon) and find a hyperplane that best fits the data.</td>
+    </tr>
+    <tr>
+      <td><strong>Decision Boundary</strong></td>
+      <td>A hyperplane (in higher dimensions) that separates different classes.</td>
+      <td>A hyperplane that predicts the target value with minimal deviation within a specified epsilon margin.</td>
+    </tr>
+    <tr>
+      <td><strong>Support Vectors</strong></td>
+      <td>Support vectors are the data points that are closest to the decision boundary, which determine the position of the hyperplane.</td>
+      <td>Support vectors are the data points that fall within the epsilon margin and influence the position of the regression line.</td>
+    </tr>
+    <tr>
+      <td><strong>Kernel Trick</strong></td>
+      <td>Used to handle non-linear data by transforming it into a higher-dimensional space where a linear separation is possible.</td>
+      <td>Used to handle non-linear relationships by transforming the input space into a higher-dimensional space where a linear regression model fits better.</td>
+    </tr>
+    <tr>
+      <td><strong>Loss Function</strong></td>
+      <td>Hinge loss: Encourages correct classification by a margin and penalizes misclassifications.</td>
+      <td>Epsilon-insensitive loss: Errors within the epsilon margin are ignored, and only deviations beyond the margin are penalized.</td>
+    </tr>
+    <tr>
+      <td><strong>Common Kernels</strong></td>
+      <td>Linear, Polynomial, Radial Basis Function (RBF), Sigmoid.</td>
+    </tr>
+    <tr>
+      <td><strong>Output</strong></td>
+      <td>Class labels (e.g., 0 or 1 in binary classification).</td>
+      <td>Continuous values (e.g., predicted numerical value).</td>
+    </tr>
+    <tr>
+      <td><strong>Applications</strong></td>
+      <td>Image classification, text categorization, and bioinformatics.</td>
+      <td>Forecasting, time series prediction, and financial modeling.</td>
+    </tr>
+  </tbody>
+</table>
+</p>
+
+
+### 4. Random Forest 
+Like Decision Trees, Random Forests can also be used for both classification and regression tasks. A Random Forest combines the output of multiple decision trees to reach asingle result.
+Random Forest creates many trees (often hundreds). Each tree is trained on a random subset of the data and a random subset of features.
+For regression tasks, the predictions from all the trees are averaged to get the final prediction. For classification, the final output is based on the majority vote of the individual trees.
+It reduces the risk of overfitting and provide more accurate predictions. 
+
+- Since each tree in the forest is trained on different subsets of the data, Random Forests are less likely to overfit compared to individual decision trees.
+- Random Forests can handle missing values and maintain accuracy.
+- They provide insights into which features are most important in making predictions, which is valuable for feature selection. After training a Random Forest model, you can easily retrieve the feature importance scores using built-in functions in libraries like Scikit-learn.
+
+```
+        importances = model.feature_importances_
+        for feature, importance in zip(feature_names, importances):
+            print(f"{feature}: {importance}")
+```
+In the [Credit Card](../datasets/CreditCard.csv), expenditure and shares are the most important features as shown in the bar chart in [Random Forest Notebook](random_forest.ipynb)
+
+Hyper Parameter Tuning:
+Hyperparameter tuning involves adjusting the settings of the Random Forest model to improve its performance. Common methods include:
+
+- Grid Search: Systematically tests all possible combinations of predefined hyperparameter values.
+- Random Search: Randomly samples hyperparameter values within specified ranges.
+- Bayesian Optimization: Uses probabilistic models to efficiently explore the hyperparameter space.
+Tuning these parameters, such as the number of trees (n_estimators) and maximum tree depth (max_depth), helps optimize the model’s accuracy and generalization
+
+[Random Forest Notebook](random_forest.ipynb) covers the implementation of Random Forest for classification problem on the Credit Card dataset
+
+The model performs exceptionally well with an accuracy of 99%, correctly classifying 168 instances of class 1 and 47 instances of class 0. Precision, recall, and F1-scores for class 1 are all near-perfect, with only a few misclassifications of class 1 instances as class 0. The confusion matrix shows no false positives for class 0, showing the model's accuracy.
+
 
