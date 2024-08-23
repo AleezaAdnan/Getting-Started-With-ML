@@ -92,7 +92,16 @@ Support Vector Regression focuses on finding a function that approximates the ta
   - Similar to classification, for neural network-like relationships.
   - **Example**: Modeling the relationship between advertising spend and sales.
 
+[SVR Notebook](../datasets/WineQT.csv) shows the working of SVR for predicting wine quality 
+```
+Mean Squared Error: 0.3310855254831319
+R-squared: 0.44706756708266737
+Mean Abslute Error: 0.4419249203447334
 
+```
+- A lower MSE indicates that the model's predictions are closer to the actual values. However, because it squares the errors, larger errors have a more significant impact on the MSE. It's a good metric for understanding the model's overall accuracy, but it can be sensitive to outliers.
+- R-squared shows how well the model explains the variability of the target variable. An R-squared value closer to 1 means the model explains more variance, while a value closer to 0 means it explains less. The value suggests that the model explains about 57.5% of the variance in the target variable, which is a moderate fit.
+- MAE measures the average magnitude of errors in a set of predictions, without considering their direction (without squaring the errors). It’s  on the same scale as the data and isn’t as influenced by outliers. A lower MAE indicates a better model performance.
 
 ### 4. Random Forest 
 Like Decision Trees, Random Forests can also be used for both classification and regression tasks. A Random Forest combines the output of multiple decision trees to reach asingle result.
@@ -123,4 +132,18 @@ Tuning these parameters, such as the number of trees (n_estimators) and maximum 
 
 The model performs exceptionally well with an accuracy of 99%, correctly classifying 168 instances of class 1 and 47 instances of class 0. Precision, recall, and F1-scores for class 1 are all near-perfect, with only a few misclassifications of class 1 instances as class 0. The confusion matrix shows no false positives for class 0, showing the model's accuracy.
 
+### 5. Logisitc Regression
+
+Logistic Regression is a statistical method used for binary classification, the goal is to predict one of the two outcomes. Unlike Linear Regression, which predicts continuous values, Logisitic Regression predicts the probabailities that an instance belong to a particular class. 
+- It uses the *Sigmoid Function* (also called the logisitc function) to map predicted values to probabilities. (An S-shaped curve that gives the output between 0 and 1)
+- The model outputs a probability, and you can set a threshold/decision boundary (commonly 0.5) to classify the result into one of the two classes.
+
+This was Binary Logistic Regression, then there's **Multi-Nomial Logisitc Regression** which is used when the target variable has three or more unordered categories for example, sheep, cow, bull
+
+Both Linear Logistic Regression, and Multinomial Logisitic Regression can be implemented directly using sklearn. [Logistic Regression Notebook](logisitc_regression.ipynb) covers the implementation of Linear Logistic Regression for detecting spam, Multi-Nomial Logisitic Regression can be implemented for appropriate dataset the same way, by just adding the multi_class parameter:
+
+```
+model = LogisticRegression(multi_class='multinomial')
+
+```
 
