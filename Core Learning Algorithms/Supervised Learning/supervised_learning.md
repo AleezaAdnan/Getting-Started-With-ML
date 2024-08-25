@@ -19,6 +19,24 @@ Classification is used when the output variable is a category. The goal of class
 ### 1. Linear Regression
 Linear Regression is used to predict a number based on a trend in the data. It finds the best-fit line through your data points (this best fit line is calculated using different mathematical formulas and each of them has specific use cases). It draws a line that best represents the relationship between input features and the output value. You use this line to make predictions.
 
+- In simple linear regression (one predictor), the model is represented by the equation:  
+  \[
+  y = \beta_0 + \beta_1x + \epsilon
+  \]
+  - \(y\) is the dependent variable (target).
+  - \(x\) is the independent variable (predictor).
+  - \(\beta_0\) is the intercept (the value of \(y\) when \(x = 0\)).
+  - \(\beta_1\) is the slope (how much \(y\) changes for a unit change in \(x\)).
+  - \(\epsilon\) represents the error term (the difference between the observed and predicted values).
+
+- In multiple linear regression (multiple predictors), the model extends to:
+  
+  \[
+  y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \dots + \beta_nx_n + \epsilon
+  \]
+  where \(x_1, x_2, \dots, x_n\) are the predictors.
+
+
 Go through [Linear Regression Notebook](linear_regression.ipynb) to understand the implementation of linear regression using scikitlearn on the housing price prediction dataset.
  
 *Model Performance*
@@ -42,6 +60,7 @@ Classification: Sorts data into categories based on majority votes.
 
 [Decision Tree NoteBook](decision_tree.ipynb) covers the implementation of Decision tree for classification problem on the titanic dataset.
 
+*Model- Performance*
 - The model achieves strong overall accuracy (84.9%) and high precision (92.2%), indicating it correctly identifies survivors most of the time when it predicts survival. However, the recall (72.8%) suggests it misses a notable portion of actual survivors, which could be critical in applications where missing true positives is costly. 
 - To improve in more critical contexts, focusing on increasing recall, possibly by adjusting the decision threshold or using techniques like boosting, could help ensure more survivors are correctly identified.
 
@@ -93,15 +112,17 @@ Support Vector Regression focuses on finding a function that approximates the ta
   - **Example**: Modeling the relationship between advertising spend and sales.
 
 [SVR Notebook](../datasets/WineQT.csv) shows the working of SVR for predicting wine quality 
+
+*Model-Performance*
 ```
-Mean Squared Error: 0.3310855254831319
-R-squared: 0.44706756708266737
-Mean Abslute Error: 0.4419249203447334
+Mean Squared Error: 32.26017108108117
+R-squared: 0.88639437257224
+Mean Abslute Error: 3.778436859295195
 
 ```
-- A lower MSE indicates that the model's predictions are closer to the actual values. However, because it squares the errors, larger errors have a more significant impact on the MSE. It's a good metric for understanding the model's overall accuracy, but it can be sensitive to outliers.
-- R-squared shows how well the model explains the variability of the target variable. An R-squared value closer to 1 means the model explains more variance, while a value closer to 0 means it explains less. The value suggests that the model explains about 57.5% of the variance in the target variable, which is a moderate fit.
-- MAE measures the average magnitude of errors in a set of predictions, without considering their direction (without squaring the errors). It’s  on the same scale as the data and isn’t as influenced by outliers. A lower MAE indicates a better model performance.
+- A lower MSE suggests that model's predictions are close to the actual values. 32.26 is relatively low, indicating a good fit.
+- An R-squared value of 0.886 means that approximately 88.6% of the variance in the target variable is explained by the model. This indicates a strong relationship between the predictors and the target variable.
+-an MAE of 3.78 suggests that, on average, the model's predictions are off by about 3.78 units from the actual values.
 
 ### 4. Random Forest 
 Like Decision Trees, Random Forests can also be used for both classification and regression tasks. A Random Forest combines the output of multiple decision trees to reach asingle result.
@@ -130,20 +151,28 @@ Tuning these parameters, such as the number of trees (n_estimators) and maximum 
 
 [Random Forest Notebook](random_forest.ipynb) covers the implementation of Random Forest for classification problem on the Credit Card dataset
 
+*Model-Performance*
 The model performs exceptionally well with an accuracy of 99%, correctly classifying 168 instances of class 1 and 47 instances of class 0. Precision, recall, and F1-scores for class 1 are all near-perfect, with only a few misclassifications of class 1 instances as class 0. The confusion matrix shows no false positives for class 0, showing the model's accuracy.
 
 ### 5. Logisitc Regression
 
-Logistic Regression is a statistical method used for binary classification, the goal is to predict one of the two outcomes. Unlike Linear Regression, which predicts continuous values, Logisitic Regression predicts the probabailities that an instance belong to a particular class. 
+There're three types of Logistic Regression
+Binary Logistic Regression is a statistical method used for binary classification, the goal is to predict one of the two outcomes. Unlike Linear Regression, which predicts continuous values, Logisitic Regression predicts the probabailities that an instance belong to a particular class. 
 - It uses the *Sigmoid Function* (also called the logisitc function) to map predicted values to probabilities. (An S-shaped curve that gives the output between 0 and 1)
 - The model outputs a probability, and you can set a threshold/decision boundary (commonly 0.5) to classify the result into one of the two classes.
 
-This was Binary Logistic Regression, then there's **Multi-Nomial Logisitc Regression** which is used when the target variable has three or more unordered categories for example, sheep, cow, bull
+Then there's **Multi-Nomial Logisitc Regression** which is used when the target variable has three or more unordered categories for example, sheep, cow, bull
 
-Both Linear Logistic Regression, and Multinomial Logisitic Regression can be implemented directly using sklearn. [Logistic Regression Notebook](logisitc_regression.ipynb) covers the implementation of Linear Logistic Regression for detecting spam, Multi-Nomial Logisitic Regression can be implemented for appropriate dataset the same way, by just adding the multi_class parameter:
+Both Linear Logistic Regression, and Multinomial Logisitic Regression can be implemented directly using sklearn. [Logistic Regression Notebook](logisitc_regression.ipynb) covers the implementation of Linear Logistic Regression for detecting spam, 
+
+The model has a high accuracy of 97.9%, meaning it correctly classified most of the spam and ham emails. The ROC-AUC score of 0.92 suggests that the model is effective in identifying both spam and ham emails.
+
+Multi-Nomial Logisitic Regression can be implemented for appropriate dataset the same way, by just adding the multi_class parameter:
 
 ```
 model = LogisticRegression(multi_class='multinomial')
 
 ```
-
+Then there's **Ordinal Logistic Regression** it's used when the target variable has three or more ordered categories. For example, if you're predicting a customer's satisfaction level as "low," "medium," or "high," ordinal logistic regression can be used because the categories have a natural order. 
+Ordinal logistic regression is not directly supported by scikit-learn. However, you can use the statsmodels library to implement it.
+It's more specialized, often used in fields like social sciences or medical research where the target variable has a natural order but the distances between the categories are not necessarily equal.
