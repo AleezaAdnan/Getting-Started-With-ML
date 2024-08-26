@@ -1,6 +1,9 @@
 # Supervised Learning
 
-Supervised learning is a type of machine learning where the algorithm is trained on a labeled dataset. This means that each training example is paired with an output label. The algorithm learns to map the input data to the correct output by finding patterns in the data. Once trained, the model can predict the output for new, unseen data.
+Supervised learning is a type of machine learning where the algorithm is trained on a labeled dataset. This means that each training example is paired with an output label. The algorithm learns to map the input data to the correct output by finding patterns in the data. Once trained, the model can predict the output for new, unseen data. 
+There are two kinds of supervised learning algorithms
+- Regression 
+- Classification
 
 ## Regression vs. Classification
 
