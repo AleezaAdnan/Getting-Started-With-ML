@@ -51,7 +51,7 @@ R^2 Score: 0.653
 ```
 - MSE and RMSE: High values suggest that there is considerable error in the predictions. You might want to investigate if different preprocessing steps could improve the model’s performance.
 - R² Score: A score of 0.653 is reasonably good but indicates that there is room for improvement. You might consider trying more complex models, adding more features, or exploring interactions between features.
-Refer to [Fine Tuning ML Models](../../Fine%20Tuning%20ML%20Models/) to learn how to improve the model's performace.
+Refer to [Fine Tuning ML Models](../../Fine%20Tuning%20ML%20Models/README.md) to learn how to improve the model's performace.
 
 ### 2. Decision Trees
 Decision Trees split data into branches to make predictions. Each branch represents a decision based on a feature.
