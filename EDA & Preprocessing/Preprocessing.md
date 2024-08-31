@@ -201,7 +201,7 @@ https://www.geeksforgeeks.org/machine-learning-outlier/
 ## Conclusion
 Data preprocessing isn’t just a box you check before diving into machine learning — it’s a crucial journey that transforms raw data into a masterpiece. By handling missing values, normalizing data, and scaling features, you’re paving the way for models that can uncover insights, predict outcomes, and drive innovation.
 
-##Reference
+## Reference
 
 https://blogs.ainomic.in/demystifying-data-preprocessing-for-machine-learning-beginners-bfa89fecb971
 https://medium.com/analytics-vidhya/data-cleaning-and-preprocessing-a4b751f4066f
