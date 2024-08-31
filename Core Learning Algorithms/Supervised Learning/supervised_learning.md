@@ -157,25 +157,23 @@ Tuning these parameters, such as the number of trees (n_estimators) and maximum 
 *Model-Performance*
 The model performs exceptionally well with an accuracy of 99%, correctly classifying 168 instances of class 1 and 47 instances of class 0. Precision, recall, and F1-scores for class 1 are all near-perfect, with only a few misclassifications of class 1 instances as class 0. The confusion matrix shows no false positives for class 0, showing the model's accuracy.
 
-### 5. Logisitc Regression
+### 5. Logistic Regression
 
-There're three types of Logistic Regression
-Binary Logistic Regression is a statistical method used for binary classification, the goal is to predict one of the two outcomes. Unlike Linear Regression, which predicts continuous values, Logisitic Regression predicts the probabailities that an instance belong to a particular class. 
-- It uses the *Sigmoid Function* (also called the logisitc function) to map predicted values to probabilities. (An S-shaped curve that gives the output between 0 and 1)
-- The model outputs a probability, and you can set a threshold/decision boundary (commonly 0.5) to classify the result into one of the two classes.
+There are three types of Logistic Regression:
 
-Then there's **Multi-Nomial Logisitc Regression** which is used when the target variable has three or more unordered categories for example, sheep, cow, bull
+- **Binary Logistic Regression** is a statistical method used for binary classification, where the goal is to predict one of two possible outcomes. Unlike Linear Regression, which predicts continuous values, Logistic Regression predicts the probabilities that an instance belongs to a particular class.
+  - It uses the *Sigmoid Function* (also called the logistic function) to map predicted values to probabilities, producing an S-shaped curve that outputs values between 0 and 1.
+  - The model outputs a probability, and you can set a threshold/decision boundary (commonly 0.5) to classify the result into one of the two classes.
 
-Both Linear Logistic Regression, and Multinomial Logisitic Regression can be implemented directly using sklearn. [Logistic Regression Notebook](logisitc_regression.ipynb) covers the implementation of Linear Logistic Regression for detecting spam, 
+- **ROC Curve:** The ROC (Receiver Operating Characteristic) curve is a plot that illustrates the performance of a binary classifier like Logistic Regression. It shows the trade-off between the True Positive Rate (Sensitivity) and the False Positive Rate across different threshold values. A perfect model would achieve a point in the top-left corner of the ROC space (100% sensitivity and 0% false positive rate). The closer the ROC curve is to this top-left corner, the better the model. The Area Under the Curve (AUC) is a single number summary of the ROC curve.
+  
+  [Logistic Regression Notebook](logistic_regression.ipynb) covers the implementation of Binary Logistic Regression for detecting spam. In our case, an AUC score of 0.98 indicates that the model is highly effective in distinguishing between the two classes (spam vs. ham).
 
-The model has a high accuracy of 97.9%, meaning it correctly classified most of the spam and ham emails. The ROC-AUC score of 0.92 suggests that the model is effective in identifying both spam and ham emails.
+- **Multinomial Logistic Regression** is used when the target variable has three or more unordered categories (e.g., sheep, cow, bull). You can implement Multinomial Logistic Regression in the same way as binary logistic regression by adding the `multi_class` parameter:
 
-Multi-Nomial Logisitic Regression can be implemented for appropriate dataset the same way, by just adding the multi_class parameter:
+  ```python
+  model = LogisticRegression(multi_class='multinomial')
 
-```
-model = LogisticRegression(multi_class='multinomial')
+**Ordinal Logistic Regression** is used when the target variable has three or more ordered categories. For example, if you're predicting a customer's satisfaction level as "low," "medium," or "high," ordinal logistic regression can be used because the categories have a natural order. However, the distances between these categories are not necessarily equal.
 
-```
-Then there's **Ordinal Logistic Regression** it's used when the target variable has three or more ordered categories. For example, if you're predicting a customer's satisfaction level as "low," "medium," or "high," ordinal logistic regression can be used because the categories have a natural order. 
-Ordinal logistic regression is not directly supported by scikit-learn. However, you can use the statsmodels library to implement it.
-It's more specialized, often used in fields like social sciences or medical research where the target variable has a natural order but the distances between the categories are not necessarily equal.
+Ordinal logistic regression is not directly supported by scikit-learn. However, you can use the statsmodels library to implement it. This type of regression is more specialized and is often used in fields like social sciences or medical research.
