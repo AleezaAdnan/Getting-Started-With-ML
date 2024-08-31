@@ -18,7 +18,7 @@ This directory covers explainations and code snippets related to following fine 
 - Discover how to prevent your model from overfitting.
 - Use of methods like L1/L2 regularization, dropout, and early stopping.
 
-3. **[Learning Rate Adjustment]**
+3. **[Learning Rate Adjustment](learning_rate_adjustment.md)**
 - Understand the importance of the learning rate and how to adjust it during training.
 - Using learning rate schedules to fine-tune the training process.
 
