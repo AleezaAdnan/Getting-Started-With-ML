@@ -114,18 +114,18 @@ Support Vector Regression focuses on finding a function that approximates the ta
   - Similar to classification, for neural network-like relationships.
   - **Example**: Modeling the relationship between advertising spend and sales.
 
-[SVR Notebook](../datasets/WineQT.csv) shows the working of SVR for predicting wine quality 
+[SVR Notebook](../datasets/WineQT.csv) shows the working of SVR for concrete compressive strength.
 
 *Model-Performance*
 ```
-Mean Squared Error: 32.26017108108117
-R-squared: 0.88639437257224
-Mean Abslute Error: 3.778436859295195
+Mean Squared Error: 34.78446484157382
+R-squared: 0.8799268687977696
+Mean Abslute Error: 3.945392674205349
 
 ```
-- A lower MSE suggests that model's predictions are close to the actual values. 32.26 is relatively low, indicating a good fit.
-- An R-squared value of 0.886 means that approximately 88.6% of the variance in the target variable is explained by the model. This indicates a strong relationship between the predictors and the target variable.
--an MAE of 3.78 suggests that, on average, the model's predictions are off by about 3.78 units from the actual values.
+- A lower MSE suggests that model's predictions are close to the actual values. 34.78 is relatively low, indicating a good fit.
+- An R-squared value of 0.87 means that approximately 87% of the variance in the target variable is explained by the model. This indicates a strong relationship between the predictors and the target variable.
+-an MAE of 3.94 suggests that, on average, the model's predictions are off by about 3.94 units from the actual values.
 
 ### 4. Random Forest 
 Like Decision Trees, Random Forests can also be used for both classification and regression tasks. A Random Forest combines the output of multiple decision trees to reach asingle result.
@@ -167,7 +167,7 @@ There are three types of Logistic Regression:
 
 - **ROC Curve:** The ROC (Receiver Operating Characteristic) curve is a plot that illustrates the performance of a binary classifier like Logistic Regression. It shows the trade-off between the True Positive Rate (Sensitivity) and the False Positive Rate across different threshold values. A perfect model would achieve a point in the top-left corner of the ROC space (100% sensitivity and 0% false positive rate). The closer the ROC curve is to this top-left corner, the better the model. The Area Under the Curve (AUC) is a single number summary of the ROC curve.
   
-  [Logistic Regression Notebook](logistic_regression.ipynb) covers the implementation of Binary Logistic Regression for detecting spam. In our case, an AUC score of 0.98 indicates that the model is highly effective in distinguishing between the two classes (spam vs. ham).
+  [Logistic Regression Notebook](logistic_regression.ipynb) covers the implementation of Binary Logistic Regression for detecting spam. In our case, an AUC value of 0.98 indicates that the model is highly effective in distinguishing between the two classes (spam vs. ham).
 
 - **Multinomial Logistic Regression** is used when the target variable has three or more unordered categories (e.g., sheep, cow, bull). You can implement Multinomial Logistic Regression in the same way as binary logistic regression by adding the `multi_class` parameter:
 
