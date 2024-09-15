@@ -2,6 +2,8 @@
 
 Choosing the right evaluation metric is crucial in ensuring your model's performance meets real-world needs. Metrics like accuracy may suffice for balanced datasets, but in cases like medical diagnoses or fraud detection, precision, recall, and other advanced metrics become vital
 
+### For Binary Classification
+
 ## Confusion Matrix
 
 The confusion matrix is a fundamental evaluation metric for classification problems. It helps us understand how well our model performs by comparing the predicted classes with the actual classes. It is a 2x2 table for binary classification, representing the counts of true and false classifications.
@@ -41,6 +43,7 @@ Understanding the confusion matrix helps you choose the right model for your nee
 
 After understanding the confusion matrix, we can now explore the key metrics used to evaluate classification models. Each metric gives insight into a different aspect of performance, helping us determine how well a model fits our data.
 
+---
 
 ## 1. Accuracy
 
@@ -56,7 +59,7 @@ Accuracy works best when the classes in your dataset are balanced (roughly the s
 ### When Accuracy Fails:
 In cases of imbalanced data (e.g., a rare disease where 95% of patients are healthy and 5% are sick), accuracy can be misleading. A model that predicts all patients as healthy will have high accuracy (95%), even though it completely misses the sick patients.
 
-
+---
 
 ## 2. Precision
 
@@ -72,7 +75,7 @@ Precision is useful when the cost of a false positive is high. For example, in s
 ### When Precision Fails:
 When you care more about catching all actual positives, precision might not be the best metric, as it doesn't account for false negatives.
 
-
+---
 
 ## 3. Recall (Sensitivity)
 
@@ -93,7 +96,7 @@ Focusing solely on recall can lead to many false positives. For example, predict
 
 There’s often a trade-off between precision and recall. If you increase recall, you may lower precision, and vice versa. For example, in a medical test, making the test more sensitive (higher recall) may result in more false alarms (lower precision).
 
-
+---
 
 ## 4. F1 Score
 
@@ -109,7 +112,7 @@ The F1 score is useful when you want a balance between precision and recall, esp
 ### When F1 Score Fails:
 In some cases, you might prioritize precision or recall over their balance. In these situations, using the F1 score might obscure important details about your model's performance.
 
-
+---
 
 ## 5. Specificity (True Negative Rate)
 
@@ -125,7 +128,7 @@ Specificity is important in cases where false positives are costly, such as a le
 ### When Specificity Fails:
 If you only focus on specificity, you might miss too many positive cases. For instance, a model that rarely flags people as positive may have high specificity, but low recall.
 
-
+---
 
 ## 6. ROC Curve and AUC Score
 
@@ -147,7 +150,7 @@ In highly imbalanced datasets, even models with a high AUC score might not perfo
 
 Thus, while ROC-AUC gives an overall view of performance, it may **fail** to address the **operational needs** of specific problems, especially when the cost of false positives or false negatives is significantly unbalanced. In such cases, focusing on metrics like precision, recall, or F1 score may be more appropriate, depending on the business requirements
 
-
+---
 
 ## 7. Matthews Correlation Coefficient (MCC)
 
@@ -180,4 +183,163 @@ While MCC is generally more robust than accuracy for imbalanced datasets, it can
 - **MCC** gives a balanced evaluation by considering all aspects of the confusion matrix, including true negatives.
 
 MCC is ideal when you need a single number to summarize the overall performance of the model across all classes.
+
+---
+---
+
+# Multiclass Classification
+
+In multiclass classification, the task is to classify instances into one of several categories or classes. This requires special handling of evaluation metrics as opposed to binary classification.
+
+## Confusion Matrix for Multiclass Classification
+
+For multiclass classification, the confusion matrix is an extension of the 2x2 matrix used in binary classification. It becomes an **NxN matrix**, where `N` is the number of classes. Each row corresponds to the **actual class**, and each column corresponds to the **predicted class**.
+
+For example, if there are three classes (A, B, C), the confusion matrix would look like this:
+
+<p align='center'>
+<table>
+  <tr>
+    <th></th>
+    <th>Predicted A</th>
+    <th>Predicted B</th>
+    <th>Predicted C</th>
+  </tr>
+  <tr>
+    <td><strong>Actual A</strong></td>
+    <td>TP (A)</td>
+    <td>FP (B)</td>
+    <td>FP (C)</td>
+  </tr>
+  <tr>
+    <td><strong>Actual B</strong></td>
+    <td>FN (A)</td>
+    <td>TP (B)</td>
+    <td>FP (C)</td>
+  </tr>
+  <tr>
+    <td><strong>Actual C</strong></td>
+    <td>FN (A)</td>
+    <td>FN (B)</td>
+    <td>TP (C)</td>
+  </tr>
+</table>
+</p>
+
+In this matrix:
+- Diagonal elements (e.g., TP (A), TP (B), TP (C)) represent the **True Positives (TP)** for each class.
+- Off-diagonal elements represent **False Positives (FP)** and **False Negatives (FN)**, which indicate misclassifications.
+
+This confusion matrix helps in identifying how well the model performs for each class and where it misclassifies instances.
+
+---
+
+# Evaluation Metrics for Multiclass Classification
+
+To evaluate multiclass models, we can extend the binary classification metrics like **precision**, **recall**, and **F1 score** using two common approaches:
+- **Micro Averaging**
+- **Macro Averaging**
+
+
+## Micro Average
+
+**Micro Average** aggregates the contributions of all classes to compute the average metric. It's useful when you care equally about all classes and want to get a global measure.
+
+### How It Works
+
+1. **Calculate metrics for each instance**: For each class, count the number of true positives, false positives, and false negatives.
+2. **Sum up these counts** across all classes.
+3. **Compute the metric** using the total counts.
+
+### Formula
+
+For precision, recall, and F1-score:
+
+- **Micro Precision**: 
+  \[
+  \text{Micro Precision} = \frac{\text{Total TP}}{\text{Total TP} + \text{Total FP}}
+  \]
+
+- **Micro Recall**: 
+  \[
+  \text{Micro Recall} = \frac{\text{Total TP}}{\text{Total TP} + \text{Total FN}}
+  \]
+
+- **Micro F1-Score**: 
+  \[
+  \text{Micro F1-Score} = \frac{2 \times \text{Micro Precision} \times \text{Micro Recall}}{\text{Micro Precision} + \text{Micro Recall}}
+  \]
+
+### Drawbacks
+
+- **Class Imbalance**: Micro average can be dominated by the performance on the more frequent classes.
+- **Loses Class-specific Insights**: It combines all classes, so you may miss out on how the model performs on individual classes.
+
+## Macro Average
+
+**Macro Average** computes the metric for each class individually and then averages these values. It's useful when you want to treat all classes equally, regardless of their size.
+
+### How It Works
+
+1. **Calculate metrics for each class**: Compute precision, recall, and F1-score for each class.
+2. **Average these metrics** across all classes.
+
+### Formula
+
+- **Macro Precision**: 
+  \[
+  \text{Macro Precision} = \frac{1}{C} \sum_{i=1}^{C} \text{Precision}_i
+  \]
+
+- **Macro Recall**: 
+  \[
+  \text{Macro Recall} = \frac{1}{C} \sum_{i=1}^{C} \text{Recall}_i
+  \]
+
+- **Macro F1-Score**: 
+  \[
+  \text{Macro F1-Score} = \frac{1}{C} \sum_{i=1}^{C} \text{F1-Score}_i
+  \]
+
+Where \( C \) is the number of classes.
+
+### Drawbacks
+
+- **Sensitive to Class Imbalance**: Macro average treats all classes equally, which can be misleading if some classes are very small.
+- **May Not Reflect Overall Performance**: Classes with very few instances might disproportionately affect the average.
+
+## Weighted Average
+
+**Weighted Average** takes into account the number of true instances for each class when calculating the average metric. It provides a more balanced view considering the size of each class.
+
+### How It Works
+
+1. **Calculate metrics for each class**: Compute precision, recall, and F1-score for each class.
+2. **Weight these metrics** by the number of true instances of each class.
+3. **Sum and normalize** these weighted metrics.
+
+### Formula
+
+- **Weighted Precision**: 
+  \[
+  \text{Weighted Precision} = \frac{\sum_{i=1}^{C} (\text{Precision}_i \times \text{Support}_i)}{\sum_{i=1}^{C} \text{Support}_i}
+  \]
+
+- **Weighted Recall**: 
+  \[
+  \text{Weighted Recall} = \frac{\sum_{i=1}^{C} (\text{Recall}_i \times \text{Support}_i)}{\sum_{i=1}^{C} \text{Support}_i}
+  \]
+
+- **Weighted F1-Score**: 
+  \[
+  \text{Weighted F1-Score} = \frac{\sum_{i=1}^{C} (\text{F1-Score}_i \times \text{Support}_i)}{\sum_{i=1}^{C} \text{Support}_i}
+  \]
+
+Where \(\text{Support}_i\) is the number of true instances of class \(i\).
+
+### Drawbacks
+
+- **Complexity**: Weighted average can be more complex to compute and interpret compared to macro and micro averages.
+- **Overemphasis on Large Classes**: It might overemphasize the performance on larger classes and potentially underrepresent smaller classes.
+
 
