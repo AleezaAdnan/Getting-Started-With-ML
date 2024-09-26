@@ -10,7 +10,7 @@ Welcome to my machine learning journey! This repository is a collection of what 
 - **Supervised Learning**: Core algorithms and techniques for supervised learning.
 - **Unsupervised Learning**: Core algorithms and techniques for unsupervised learning.
 - **Reinforcement Learning**: An introduction to reinforcement learning concepts.
-- **Neural Networks**: Basics and advanced topics in neural networks.
+- **Neural Networks**: A general introduction to non deep neural networks
 
 ## Tools and Libraries
 
